@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import TodoList from "./containers/TodoList/TodoList";
-import AnotherTodoList from "./containers/AnotherTodoList/AnotherTodoList";
+import Home from "./components/templates/Home/Home";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList />
-        <AnotherTodoList />
+        <Home />
       </div>
     );
   }
