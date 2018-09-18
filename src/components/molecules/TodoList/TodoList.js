@@ -2,18 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Todo from "../../atoms/Todo/Todo";
-import { DataContext } from "../../templates/Home/Home";
+import withTasks from "../../../withTasks";
 
-const TodoList = ({ onChange }) => (
-  <DataContext.Consumer>
-    {tasks => (
-      <ul>
-        {tasks.map((task, index) => (
-          <Todo key={task.id} task={task} onChange={() => onChange(index)} />
-        ))}
-      </ul>
-    )}
-  </DataContext.Consumer>
+const TodoList = ({ onChange, tasks }) => (
+  <ul>
+    {tasks.map((task, index) => (
+      <Todo key={task.id} task={task} onChange={() => onChange(index)} />
+    ))}
+  </ul>
 );
 
 TodoList.propTypes = {
@@ -26,4 +22,4 @@ TodoList.propTypes = {
   )
 };
 
-export default TodoList;
+export default withTasks(TodoList);

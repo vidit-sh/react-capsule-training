@@ -2,6 +2,7 @@ import React from "react";
 
 import PublicTodoList from "../../organisms/PublicTodoList/PublicTodoList";
 import PrivateTodoList from "../../organisms/PrivateTodoList/PrivateTodoList";
+import { Provider } from "../../../withTasks";
 
 const tasks = [
   {
@@ -16,14 +17,12 @@ const tasks = [
   }
 ];
 
-export const DataContext = React.createContext();
-
 const Home = () => (
   <main>
-    <DataContext.Provider value={tasks}>
+    <Provider value={tasks}>
       <PrivateTodoList />
       <PublicTodoList />
-    </DataContext.Provider>
+    </Provider>
   </main>
 );
 
