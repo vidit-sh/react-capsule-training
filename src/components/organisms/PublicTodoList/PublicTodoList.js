@@ -17,7 +17,8 @@ const tasks = [
 
 class PublicTodoList extends React.Component {
   state = {
-    modifiedTasks: []
+    modifiedTasks: [],
+    clicked: false
   };
 
   componentWillMount = () => {
@@ -33,6 +34,15 @@ class PublicTodoList extends React.Component {
       <section>
         <h2>Public Tasks</h2>
         <TodoList tasks={modifiedTasks} />
+        <button
+          onClick={() => {
+            this.setState({
+              clicked: true
+            });
+          }}
+        >
+          Click
+        </button>
       </section>
     );
   };
