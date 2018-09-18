@@ -6,7 +6,7 @@ import Checkbox from "../Checkbox/Checkbox";
 
 const Todo = ({ task, onChange }) => (
   <li className={task.done ? "task-done" : "task-not-done"}>
-    {task.label} <Checkbox onChange={onChange} />
+    {task.label} <Checkbox onChange={onChange} value={task.done} />
   </li>
 );
 

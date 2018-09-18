@@ -17,12 +17,11 @@ const tasks = [
 
 class PublicTodoList extends React.Component {
   state = {
-    modifiedTasks: [],
-    clicked: false
+    modifiedTasks: []
   };
 
   componentWillMount = () => {
-    const modifiedTasks = tasks.map(task => ({ ...task, done: false }));
+    const modifiedTasks = tasks.map(task => ({ ...task, done: true }));
     this.setState({
       modifiedTasks
     });

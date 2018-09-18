@@ -1,10 +1,7 @@
 import React from "react";
 
-class Checkbox extends React.PureComponent {
-  render = () => {
-    const { onChange } = this.props;
-    return <input type="checkbox" onChange={onChange} />;
-  };
-}
+const Checkbox = ({ onChange, value }) => {
+  return <input type="checkbox" checked={value} onChange={onChange} />;
+};
 
 export default Checkbox;
