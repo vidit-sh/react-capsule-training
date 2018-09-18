@@ -15,11 +15,27 @@ const tasks = [
   }
 ];
 
-const PublicTodoList = () => (
-  <section>
-    <h2>Public Tasks</h2>
-    <TodoList tasks={tasks} />
-  </section>
-);
+class PublicTodoList extends React.Component {
+  state = {
+    modifiedTasks: []
+  };
+
+  componentWillMount = () => {
+    const modifiedTasks = tasks.map(task => ({ ...task, done: false }));
+    this.setState({
+      modifiedTasks
+    });
+  };
+
+  render = () => {
+    const { modifiedTasks } = this.state;
+    return (
+      <section>
+        <h2>Public Tasks</h2>
+        <TodoList tasks={modifiedTasks} />
+      </section>
+    );
+  };
+}
 
 export default PublicTodoList;
