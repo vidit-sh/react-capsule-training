@@ -28,21 +28,20 @@ class PublicTodoList extends React.Component {
     });
   };
 
+  onChange = index => {
+    const tasks = [...this.state.modifiedTasks];
+    tasks[index].done = !tasks[index].done;
+    this.setState({
+      modifiedTasks: tasks
+    });
+  };
+
   render = () => {
     const { modifiedTasks } = this.state;
     return (
       <section>
         <h2>Public Tasks</h2>
-        <TodoList tasks={modifiedTasks} />
-        <button
-          onClick={() => {
-            this.setState({
-              clicked: true
-            });
-          }}
-        >
-          Click
-        </button>
+        <TodoList tasks={modifiedTasks} onChange={this.onChange} />
       </section>
     );
   };

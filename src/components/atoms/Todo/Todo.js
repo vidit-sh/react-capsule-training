@@ -2,9 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./Todo.css";
+import Checkbox from "../Checkbox/Checkbox";
 
-const Todo = ({ task }) => (
-  <li className={task.done ? "task-done" : "task-not-done"}>{task.label}</li>
+const Todo = ({ task, onChange }) => (
+  <li className={task.done ? "task-done" : "task-not-done"}>
+    {task.label} <Checkbox onChange={onChange} />
+  </li>
 );
 
 Todo.propTypes = {

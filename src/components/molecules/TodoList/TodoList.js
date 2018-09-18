@@ -3,19 +3,13 @@ import PropTypes from "prop-types";
 
 import Todo from "../../atoms/Todo/Todo";
 
-class TodoList extends React.PureComponent {
-  render = () => {
-    const { tasks } = this.props;
-    console.log("TodoList");
-    return (
-      <ul>
-        {tasks.map(task => (
-          <Todo key={task.id} task={task} />
-        ))}
-      </ul>
-    );
-  };
-}
+const TodoList = ({ tasks, onChange }) => (
+  <ul>
+    {tasks.map((task, index) => (
+      <Todo key={task.id} task={task} onChange={() => onChange(index)} />
+    ))}
+  </ul>
+);
 
 TodoList.propTypes = {
   tasks: PropTypes.arrayOf(
