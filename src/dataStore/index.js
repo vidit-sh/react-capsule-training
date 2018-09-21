@@ -19,13 +19,12 @@ export class DataProvider extends React.Component {
   };
 
   render() {
-    const { children } = this.props;
+    // Fill here
     return (
       <Provider
-        value={{
-          getStoreState: this.getStoreState,
-          setStoreState: this.setStoreState
-        }}
+        value={
+          // Fill here
+        }
       >
         {children}
       </Provider>
@@ -36,7 +35,7 @@ export class DataProvider extends React.Component {
 export const withTasks = Component => {
   const WithStoreComponent = props => {
     return (
-      <Consumer>{store => <Component {...props} store={store} />}</Consumer>
+      // Fill here
     );
   };
   return WithStoreComponent;

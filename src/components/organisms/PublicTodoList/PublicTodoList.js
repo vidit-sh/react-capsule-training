@@ -1,7 +1,6 @@
 import React from "react";
 
 import TodoList from "../../molecules/TodoList/TodoList";
-import { withTasks } from "../../../dataStore";
 
 class PublicTodoList extends React.Component {
   onChange = index => {
@@ -25,4 +24,4 @@ class PublicTodoList extends React.Component {
   };
 }
 
-export default withTasks(PublicTodoList);
+export default PublicTodoList; // Change here
