@@ -1,50 +1,28 @@
 import React from "react";
 
 import TodoList from "../../molecules/TodoList/TodoList";
-
-// const tasks = [
-//   {
-//     id: 1234,
-//     label: "I am a public task",
-//     done: false
-//   },
-//   {
-//     id: 4567,
-//     label: "I am another public task",
-//     done: true
-//   }
-// ];
+import { withTasks } from "../../../dataStore";
 
 class PublicTodoList extends React.Component {
-  // state = {
-  //   modifiedTasks: []
-  // };
-
-  // componentWillMount = () => {
-  //   const modifiedTasks = tasks.map(task => ({ ...task, done: true }));
-  //   this.setState({
-  //     modifiedTasks
-  //   });
-  // };
-
-  // onChange = index => {
-  //   const tasks = [...this.state.modifiedTasks];
-  //   tasks[index].done = !tasks[index].done;
-  //   this.setState({
-  //     modifiedTasks: tasks
-  //   });
-  // };
+  onChange = index => {
+    const { store } = this.props;
+    const { tasks } = store.getStoreState();
+    tasks[index].done = !tasks[index].done;
+    store.setStoreState({
+      tasks: [...tasks]
+    });
+  };
 
   render = () => {
-    // const { modifiedTasks } = this.state;
-    // const { tasks } = this.props;
+    const { store } = this.props;
+    const { tasks } = store.getStoreState();
     return (
       <section>
         <h2>Public Tasks</h2>
-        <TodoList />
+        <TodoList tasks={tasks} onChange={this.onChange} />
       </section>
     );
   };
 }
 
-export default PublicTodoList;
+export default withTasks(PublicTodoList);

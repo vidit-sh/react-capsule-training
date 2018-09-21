@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Todo from "../../atoms/Todo/Todo";
-import withTasks from "../../../withTasks";
 
 const TodoList = ({ onChange, tasks }) => (
   <ul>
@@ -22,4 +21,4 @@ TodoList.propTypes = {
   )
 };
 
-export default withTasks(TodoList);
+export default TodoList;
